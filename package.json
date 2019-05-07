@@ -17,6 +17,11 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "devtron": "^1.4.0",
     "electron": "^5.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "electron-reload": "^1.4.0"
   }
 }

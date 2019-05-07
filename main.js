@@ -1,5 +1,20 @@
+
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron')
+// ------------------------------------------
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
+
+bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
+  // Store hash in your password DB.
+  console.log("Hashed password " + hash);
+});
+
+//-----------------------------------
+require('electron-reload')(__dirname)
+// require('devtron').install()
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,13 +29,10 @@ function createWindow() {
       nodeIntegration: true
     }
   })
-
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
-
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
